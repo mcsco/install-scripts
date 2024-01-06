@@ -66,10 +66,15 @@ flatpak install -y flathub com.transmissionbt.Transmission com.github.tchx84.Fla
 
 ### Additional Packages
 ```
-sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify
+sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire
 ```
 
-### Apparmor Config
+### Config Pipewire
+```
+systemctl --user start pipewire
+```
+
+### Config Apparmor
 ```
 sudo usermod -aG adm $USER
 sudo cp /usr/share/apparmor/extra-profiles/firefox /etc/apparmor.d/
