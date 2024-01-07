@@ -66,13 +66,20 @@ flatpak install -y flathub com.transmissionbt.Transmission com.github.tchx84.Fla
 
 ### Additional Packages
 ```
-sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire
+sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire pipewire-audio wireplumber libspa-0.2-bluetooth
 ```
 
 ### Config Pipewire
 ```
 systemctl --user start pipewire
+systemctl --user --now enable wireplumber.service
+systemctl --user restart wireplumber pipewire pipewire-pulse
 ```
+reboot system
+```
+LANG=C pactl info | grep '^Server Name'
+```
+If PipeWire is configured properly, this will print "Server Name: PulseAudio (on PipeWire X.X.XX)"
 
 ### Config Apparmor
 ```
