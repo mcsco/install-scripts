@@ -3,8 +3,9 @@
 
 # Configure dnf
 printf "%s" "
+fastestmirror=True
 max_parallel_downloads=10
-countme=false
+countme=False
 " | sudo tee -a /etc/dnf/dnf.conf
 
 # Setup RPMFusion
@@ -52,7 +53,7 @@ flatpak install -y flathub com.transmissionbt.Transmission org.libreoffice.Libre
 
 # Additional Packages
 sudo dnf install -y git steam-devices neovim sqlite3 zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
-	@virtualization guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate --best --allowerasing
+	@virtualization guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate vlc vlc-plugin-pipewire --best --allowerasing
 
 # Development Tools
 sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
@@ -80,6 +81,14 @@ sudo firewall-cmd --permanent --remove-service=mdns
 sudo firewall-cmd --permanent --remove-service=ssh
 sudo firewall-cmd --permanent --remove-service=samba-client
 sudo firewall-cmd --reload
+
+# Asus Linux Laptop Support
+sudo dnf copr enable lukenukem/asus-linux
+sudo dnf update -y
+sudo dnf install -y asusctl supergfxctl
+sudo dnf update --refresh
+sudo systemctl enable supergfxd.service
+sudo dnf install -y asusctl-rog-gui
 
 # Make the Home folder private
 # Privatizing the home folder creates problems with virt-manager
