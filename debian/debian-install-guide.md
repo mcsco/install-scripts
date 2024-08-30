@@ -31,6 +31,30 @@ sudo ufw logging on
 sudo ufw enable
 ```
 
+### Install minimal KDE Plasma
+```
+sudo apt install kde-plasma-desktop
+```
+
+### Install Timeshift
+```
+sudo apt install timeshift
+```
+
+### Configure grub-btrfs
+```
+sudo apt install git build-essential inotify-tools
+```
+```
+git clone https://github.com/Antynea/grub-btrfs.git
+cd grub-btrfs
+sudo make install
+sudo grub-mkconfig
+cd ..
+rm -rvf grub-btrfs
+```
+***Reboot System***
+
 ### Install AMD Drivers
 ```
 sudo apt install firmware-amd-graphics libgl1-mesa-dri libglx-mesa0 mesa-vulkan-drivers xserver-xorg-video-all
@@ -46,6 +70,11 @@ sudo apt install libglx-mesa0:i386 mesa-vulkan-drivers:i386 libgl1-mesa-dri:i386
 ```
 sudo apt remove --purge firefox-esr -y
 sudo apt install firefox -y
+```
+
+### Betterfox Firefox profile
+```
+git clone https://github.com/yokoffing/Betterfox.git
 ```
 
 ### Install flatpak
@@ -66,7 +95,7 @@ flatpak install -y flathub com.transmissionbt.Transmission com.github.tchx84.Fla
 
 ### Additional Packages
 ```
-sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire pipewire-audio wireplumber libspa-0.2-bluetooth
+sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire pipewire-audio wireplumber libspa-0.2-bluetooth obs-studio qbittorent ark ripgrep
 ```
 
 ### Config Pipewire
