@@ -95,7 +95,7 @@ flatpak install -y flathub com.transmissionbt.Transmission com.github.tchx84.Fla
 
 ### Additional Packages
 ```
-sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire pipewire-audio wireplumber libspa-0.2-bluetooth obs-studio qbittorent ark ripgrep
+sudo apt install -y zram-tools curl git build-essential unzip unrar steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting python3-pip ffmpeg v4l2loopback-dkms yt-dlp distrobox podman nextcloud-desktop dolphin-nextcloud kdevelop plasma-nm kontact korganizer timeshift gamemode dolphin-plugins apparmor apparmor-utils apparmor-profiles apparmor-profiles-extra apparmor-notify pipewire pipewire-audio wireplumber libspa-0.2-bluetooth obs-studio qbittorent ark ripgrep okular kcalc kgpg kde-spectacle gwenview
 ```
 
 ### Config Pipewire
