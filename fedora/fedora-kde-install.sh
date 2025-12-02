@@ -10,7 +10,10 @@ countme=False
 
 # Setup RPMFusion
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-"$(rpm -E %fedora)".noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-"$(rpm -E %fedora)".noarch.rpm
-sudo dnf groupupdate core -y
+# For dnf5
+sudo dnf group upgrade core -y
+# For dnf4
+# sudo dnf groupupdate core -y
 
 # Updating system
 sudo dnf upgrade -y
@@ -37,6 +40,10 @@ sudo fedora-third-party enable
 sudo fedora-third-party refresh
 flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
+# Hardware codecs with Intel
+sudo dnf install intel-media-driver
+sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
+
 # Hardware codecs with AMD (mesa)
 sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
@@ -52,8 +59,11 @@ flatpak install -y flathub com.transmissionbt.Transmission org.libreoffice.Libre
 	org.prismlauncher.PrismLauncher com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full net.lutris.Lutris
 
 # Additional Packages
-sudo dnf install -y git steam-devices neovim sqlite3 zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
+sudo dnf install -y git steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
 	@virtualization guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate vlc vlc-plugin-pipewire --best --allowerasing
+
+# Even more Packages
+sudo dnf install -y discord obs-studio obs-studio-plugin-vaapi obs-studio-plugin-vkcapture
 
 # Development Tools
 sudo dnf group install -y "C Development Tools and Libraries" "Development Tools"
@@ -63,6 +73,14 @@ sudo dnf install dnf-plugins-core
 sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
+
+# Mullvad VPN
+sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
+sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
+sudo dnf install mullvad-vpn
+
+# EW
+sudo dnf install python3-pyqt6 libsecp256k1 python3-cryptography python3-setuptools python3-pip
 
 # Multi Media
 sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
