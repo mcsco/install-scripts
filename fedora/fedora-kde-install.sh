@@ -56,7 +56,7 @@ sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 flatpak install -y flathub com.transmissionbt.Transmission org.libreoffice.LibreOffice com.github.tchx84.Flatseal com.github.finefindus.eyedropper org.kde.krita \
 	net.davidotek.pupgui2 com.heroicgameslauncher.hgl com.valvesoftware.Steam org.freedesktop.Platform.VulkanLayer.MangoHud com.obsproject.Studio com.usebottles.bottles \
 	com.obsproject.Studio.Plugin.OBSVkCapture org.pipewire.Helvum org.freedesktop.Platform.VulkanLayer.OBSVkCapture org.freedesktop.Platform.VulkanLayer.gamescope \
-	org.prismlauncher.PrismLauncher com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full net.lutris.Lutris
+	org.prismlauncher.PrismLauncher com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full net.lutris.Lutris org.localsend.localsend_app
 
 # Additional Packages
 sudo dnf install -y git steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
