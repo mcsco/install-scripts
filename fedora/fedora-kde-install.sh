@@ -59,7 +59,7 @@ flatpak install -y flathub com.transmissionbt.Transmission org.libreoffice.Libre
 	org.prismlauncher.PrismLauncher com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full net.lutris.Lutris org.localsend.localsend_app
 
 # Additional Packages
-sudo dnf install -y git steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
+sudo dnf install -y ansible git steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 akmod-v4l2loopback yt-dlp \
 	@virtualization guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate vlc vlc-plugin-pipewire --best --allowerasing
 
 # Even more Packages
@@ -75,7 +75,6 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf install -y brave-browser
 
 # Mullvad VPN
-sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
 sudo dnf config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 sudo dnf install mullvad-vpn
 
@@ -99,6 +98,10 @@ sudo firewall-cmd --permanent --remove-service=mdns
 sudo firewall-cmd --permanent --remove-service=ssh
 sudo firewall-cmd --permanent --remove-service=samba-client
 sudo firewall-cmd --reload
+
+# Add LocalSend Default Port
+sudo firewall-cmd --add-port=53317/udp
+sudo firewall-cmd --add-port=53317/tcp
 
 # Asus Linux Laptop Support
 sudo dnf copr enable lukenukem/asus-linux
