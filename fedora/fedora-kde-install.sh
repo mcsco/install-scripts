@@ -42,7 +42,6 @@ flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/fl
 
 # Hardware codecs with Intel
 sudo dnf install intel-media-driver
-sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 
 # Hardware codecs with AMD (mesa)
 sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
@@ -70,8 +69,7 @@ sudo dnf group install -y "C Development Tools and Libraries" "Development Tools
 
 # Brave Browser
 sudo dnf install dnf-plugins-core
-sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo dnf install -y brave-browser
 
 # Mullvad VPN
@@ -82,8 +80,10 @@ sudo dnf install mullvad-vpn
 sudo dnf install python3-pyqt6 libsecp256k1 python3-cryptography python3-setuptools python3-pip
 
 # Multi Media
-sudo dnf groupupdate -y multimedia --setop="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-sudo dnf groupupdate -y sound-and-video
+sudo dnf update @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+# Set Hostname
+sudo hostnamectl set-hostname **new-hostname**
 
 # Initialize Virtualization
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
