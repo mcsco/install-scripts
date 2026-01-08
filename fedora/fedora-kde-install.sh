@@ -32,10 +32,11 @@ sudo dnf remove -y anaconda* \
 
 # Debloat Fedora Workstation
 sudo dnf remove -y anaconda* \
-	atmel-firmware brasero-libs libertas-usb8388-firmware abrt* open-vm-tools nano nano-default-editor sos cyrus-sasl-plain spice-vdagent adcli realmd vpnc xorg-x11-drv-vmware gnome-shell-extension-background-logo \
+	atmel-firmware brasero-libs libertas-usb8388-firmware abrt* open-vm-tools nano nano-default-editor sos cyrus-sasl-plain spice-vdagent adcli realmd vpnc xorg-x11-drv-vmware gnome-shell-extension-background-logo gnome-maps gnome-clocks totem snapshot decibels loupe gnome-backgrounds \
 	hyperv* virtualbox-guest-additions qemu-guest-agent cheese eog evince evince-djvu fedora-bookmarks fedora-chromium-config \
 	gnome-boxes gnome-calculator gnome-calendar gnome-characters gnome-classic-session gnome-clock gnome-color-manager \
-	gnome-texteditorvince gnome-themes-extra gnome-tour gnome-user-docs gnome-weather yajl yelp totem libreoffice-core*
+	gnome-texteditorvince gnome-themes-extra gnome-tour gnome-user-docs gnome-weather gnome-connections gnome-logs gnome-font-viewer \
+	yajl yelp totem libreoffice-core*
 
 # Remove Orphan packages
 sudo dnf autoremove -y
