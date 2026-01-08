@@ -6,6 +6,7 @@ printf "%s" "
 fastestmirror=True
 max_parallel_downloads=10
 countme=False
+defaultyes=True
 " | sudo tee -a /etc/dnf/dnf.conf
 
 # Setup RPMFusion
@@ -28,6 +29,13 @@ sudo sed -i 's/umask 022/umask 077/g' /etc/bashrc
 sudo dnf remove -y anaconda* \
 	atmel-firmware libertas-usb8388-firmware abrt* open-vm-tools nano nano-default-editor sos cyrus-sasl-plain spice-vdagent adcli realmd vpnc xorg-x11-drv-vmware \
 	hyperv* virtualbox-guest-additions qemu-guest-agent kmines kpat akregator kamoso konversation kmahjongg kmouth kcharselect libreoffice-core* kwrite
+
+# Debloat Fedora Workstation
+sudo dnf remove -y anaconda* \
+	atmel-firmware brasero-libs libertas-usb8388-firmware abrt* open-vm-tools nano nano-default-editor sos cyrus-sasl-plain spice-vdagent adcli realmd vpnc xorg-x11-drv-vmware gnome-shell-extension-background-logo \
+	hyperv* virtualbox-guest-additions qemu-guest-agent cheese eog evince evince-djvu fedora-bookmarks fedora-chromium-config \
+	gnome-boxes gnome-calculator gnome-calendar gnome-characters gnome-classic-session gnome-clock gnome-color-manager \
+	gnome-texteditorvince gnome-themes-extra gnome-tour gnome-user-docs gnome-weather yajl yelp totem libreoffice-core*
 
 # Remove Orphan packages
 sudo dnf autoremove -y
@@ -76,14 +84,32 @@ sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1
 sudo rm -f /usr/lib64/firefox/browser/defaults/preferences/firefox-redhat-default-prefs.js
 
 # Flatpaks
-flatpak install -y flathub com.transmissionbt.Transmission org.libreoffice.LibreOffice com.github.tchx84.Flatseal com.github.finefindus.eyedropper org.kde.krita \
-	net.davidotek.pupgui2 com.heroicgameslauncher.hgl com.valvesoftware.Steam org.freedesktop.Platform.VulkanLayer.MangoHud com.obsproject.Studio com.usebottles.bottles \
-	com.obsproject.Studio.Plugin.OBSVkCapture org.pipewire.Helvum org.freedesktop.Platform.VulkanLayer.OBSVkCapture org.freedesktop.Platform.VulkanLayer.gamescope \
-	org.prismlauncher.PrismLauncher com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full net.lutris.Lutris org.localsend.localsend_app
+flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal io.github.flattool.Warehouse \
+	com.github.finefindus.eyedropper com.obsproject.Studio com.obsproject.Studio.Plugin.OBSVkCapture \
+	org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full \ org.localsend.localsend_app org.keepassxc.KeePassXC
 
-# Additional Packages
-sudo dnf install -y ansible git steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting setroubleshoot ffmpeg compat-ffmpeg4 ffmpeg-libs libva libva-utils akmod-v4l2loopback yt-dlp \
-	@virtualization guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate vlc vlc-plugin-pipewire --best --allowerasing
+# Gaming Flatpaks
+flatpak install -y flathub net.davidotek.pupgui2 com.heroicgameslauncher.hgl com.valvesoftware.Steam \
+	org.freedesktop.Platform.VulkanLayer.MangoHud org.freedesktop.Platform.VulkanLayer.gamescope \
+	org.prismlauncher.PrismLauncher net.lutris.Lutris com.usebottles.bottles
+
+# Workstation/Gnome Flatpaks
+flatpak install -y flathub io.bassi.Amberol com.mattjakeman.ExtensionManager org.gnome.gitlab.cheywood.Iotas \
+	com.transmissionbt.Transmission org.gnome.Builder org.gnome.Calculator org.gnome.Calendar org.gnome.Characters \
+	org.gnome.Evince org.gnome.Loupe org.gnome.World.PikaBackup com.vscodium.codium
+
+# KDE Flatpaks
+org.kde.krita
+
+# Additional Packages KDE
+sudo dnf install -y ansible git steam steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting \
+	setroubleshoot ffmpeg compat-ffmpeg4 ffmpeg-libs libva libva-utils akmod-v4l2loopback yt-dlp @virtualization \
+	guestfs-tools distrobox podman kdevelop plasma-nm kontact korganizer gamemode kate vlc vlc-plugin-pipewire --best --allowerasing
+
+# Additional Packages Gnome/Workstation
+sudo dnf install -y ansible git steam steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting \
+	setroubleshoot ffmpeg compat-ffmpeg4 ffmpeg-libs libva libva-utils akmod-v4l2loopback yt-dlp \
+	@virtualization guestfs-tools distrobox podman gamemode --best --allowerasing
 
 # Even more Packages
 sudo dnf install -y discord obs-studio obs-studio-plugin-vaapi obs-studio-plugin-vkcapture
