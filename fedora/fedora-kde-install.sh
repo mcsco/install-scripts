@@ -36,7 +36,7 @@ sudo dnf remove -y anaconda* \
 	hyperv* virtualbox-guest-additions qemu-guest-agent cheese eog evince evince-djvu fedora-bookmarks fedora-chromium-config \
 	gnome-boxes gnome-calculator gnome-calendar gnome-characters gnome-classic-session gnome-clock gnome-color-manager \
 	gnome-texteditorvince gnome-themes-extra gnome-tour gnome-user-docs gnome-weather gnome-connections gnome-logs gnome-font-viewer \
-	yajl yelp totem libreoffice-core*
+	gnome-contacts showtime yajl yelp totem libreoffice-core*
 
 # Remove Orphan packages
 sudo dnf autoremove -y
@@ -97,7 +97,8 @@ flatpak install -y flathub net.davidotek.pupgui2 com.heroicgameslauncher.hgl com
 # Workstation/Gnome Flatpaks
 flatpak install -y flathub io.bassi.Amberol com.mattjakeman.ExtensionManager org.gnome.gitlab.cheywood.Iotas \
 	com.transmissionbt.Transmission org.gnome.Builder org.gnome.Calculator org.gnome.Calendar org.gnome.Characters \
-	org.gnome.Evince org.gnome.Loupe org.gnome.World.PikaBackup com.vscodium.codium
+	org.gnome.Contacts org.gnome.font-viewer org.gnome.Loupe org.gnome.Papers org.gnome.World.PikaBackup org.gnome.Showtime \
+	com.vscodium.codium
 
 # KDE Flatpaks
 org.kde.krita
