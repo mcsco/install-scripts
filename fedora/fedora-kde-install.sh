@@ -36,7 +36,7 @@ sudo dnf remove -y anaconda* \
 	hyperv* virtualbox-guest-additions qemu-guest-agent cheese eog evince evince-djvu fedora-bookmarks fedora-chromium-config \
 	gnome-boxes gnome-calculator gnome-calendar gnome-characters gnome-classic-session gnome-clock gnome-color-manager \
 	gnome-texteditorvince gnome-themes-extra gnome-tour gnome-user-docs gnome-weather gnome-connections gnome-logs gnome-font-viewer \
-	gnome-contacts showtime yajl yelp totem libreoffice-core*
+	gnome-contacts showtime yajl yelp totem papers libreoffice-core*
 
 # Remove Orphan packages
 sudo dnf autoremove -y
