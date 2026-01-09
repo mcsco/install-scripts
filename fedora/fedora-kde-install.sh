@@ -96,7 +96,7 @@ flatpak install -y flathub net.davidotek.pupgui2 com.heroicgameslauncher.hgl com
 	org.prismlauncher.PrismLauncher net.lutris.Lutris com.usebottles.bottles
 
 # Workstation/Gnome Flatpaks
-flatpak install -y flathub io.bassi.Amberol com.mattjakeman.ExtensionManager org.gnome.gitlab.cheywood.Iotas \
+flatpak install -y flathub io.bassi.Amberol com.mattjakeman.ExtensionManager org.gnome.World.Iotas \
 	com.transmissionbt.Transmission org.gnome.Builder org.gnome.Calculator org.gnome.Calendar org.gnome.Characters \
 	org.gnome.Contacts org.gnome.font-viewer org.gnome.Loupe org.gnome.Papers org.gnome.World.PikaBackup org.gnome.Showtime \
 	com.vscodium.codium
