@@ -87,7 +87,8 @@ sudo rm -f /usr/lib64/firefox/browser/defaults/preferences/firefox-redhat-defaul
 # Flatpaks
 flatpak install -y flathub org.libreoffice.LibreOffice com.github.tchx84.Flatseal io.github.flattool.Warehouse \
 	com.github.finefindus.eyedropper com.obsproject.Studio com.obsproject.Studio.Plugin.OBSVkCapture \
-	org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full \ org.localsend.localsend_app org.keepassxc.KeePassXC
+	org.freedesktop.Platform.VulkanLayer.OBSVkCapture com.discordapp.Discord org.freedesktop.Platform.ffmpeg-full \
+	org.localsend.localsend_app org.keepassxc.KeePassXC
 
 # Gaming Flatpaks
 flatpak install -y flathub net.davidotek.pupgui2 com.heroicgameslauncher.hgl com.valvesoftware.Steam \
@@ -111,7 +112,7 @@ sudo dnf install -y ansible git steam steam-devices neovim sqlite3 zsh zsh-autos
 # Additional Packages Gnome/Workstation
 sudo dnf install -y ansible git steam steam-devices neovim sqlite3 zsh zsh-autosuggestions zsh-syntax-highlighting \
 	setroubleshoot ffmpeg compat-ffmpeg4 ffmpeg-libs libva libva-utils akmod-v4l2loopback yt-dlp \
-	@virtualization guestfs-tools distrobox podman gamemode --best --allowerasing
+	@virtualization guestfs-tools distrobox podman gamemode gnome-tweaks --best --allowerasing
 
 # Even more Packages
 sudo dnf install -y discord obs-studio obs-studio-plugin-vaapi obs-studio-plugin-vkcapture
